@@ -36,29 +36,15 @@ var __importStar =
     return result;
   };
 Object.defineProperty(exports, '__esModule', { value: true });
-exports.useDimensions = void 0;
+exports.useModalize = void 0;
 const React = __importStar(require('react'));
-const react_native_1 = require('react-native');
-const libraries_1 = require('./libraries');
-exports.useDimensions = () => {
-  const [dimensions, setDimensions] = React.useState(react_native_1.Dimensions.get('window'));
-  const onChange = ({ window }) => {
-    setDimensions(window);
-  };
-  React.useEffect(() => {
-    let dimensionChangeListener = null;
-    if (libraries_1.isBelowRN65) {
-      react_native_1.Dimensions.addEventListener('change', onChange);
-    } else {
-      dimensionChangeListener = react_native_1.Dimensions.addEventListener('change', onChange);
-    }
-    return () => {
-      if (libraries_1.isBelowRN65) {
-        react_native_1.Dimensions.removeEventListener('change', onChange);
-      } else {
-        dimensionChangeListener?.remove();
-      }
-    };
+exports.useModalize = () => {
+  const ref = React.useRef(null);
+  const close = React.useCallback(dest => {
+    ref.current?.close(dest);
   }, []);
-  return dimensions;
+  const open = React.useCallback(dest => {
+    ref.current?.open(dest);
+  }, []);
+  return { ref, open, close };
 };

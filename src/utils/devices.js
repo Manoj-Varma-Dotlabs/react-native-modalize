@@ -1,10 +1,8 @@
 'use strict';
-exports.__esModule = true;
+Object.defineProperty(exports, '__esModule', { value: true });
 exports.isWeb = exports.isAndroid = exports.isIphoneX = exports.isIos = void 0;
-var react_native_1 = require('react-native');
-var _a = react_native_1.Dimensions.get('window'),
-  width = _a.width,
-  height = _a.height;
+const react_native_1 = require('react-native');
+const { width, height } = react_native_1.Dimensions.get('window');
 exports.isIos = react_native_1.Platform.OS === 'ios';
 exports.isIphoneX =
   exports.isIos &&

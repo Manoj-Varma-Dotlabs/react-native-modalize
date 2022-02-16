@@ -1,9 +1,9 @@
 'use strict';
-exports.__esModule = true;
-var react_native_1 = require('react-native');
-var devices_1 = require('./utils/devices');
-var height = react_native_1.Dimensions.get('window').height;
-exports['default'] = react_native_1.StyleSheet.create({
+Object.defineProperty(exports, '__esModule', { value: true });
+const react_native_1 = require('react-native');
+const devices_1 = require('./utils/devices');
+const { height } = react_native_1.Dimensions.get('window');
+exports.default = react_native_1.StyleSheet.create({
   modalize: {
     position: 'absolute',
     top: 0,
