@@ -254,6 +254,16 @@ const ModalizeBase = (
       toPanValue = 1;
     }
 
+    // Modified by Manoj Varma for initial Open Value to 1
+    if (
+      panGestureAnimatedValue &&
+      alwaysOpenValue &&
+      (dest === 'top' || dest === 'default')
+    ) {
+      toPanValue = 1;
+    }
+    // END
+
     setIsVisible(true);
     setShowContent(true);
 
